@@ -20,6 +20,7 @@
 		8E03A186291EA7E10063C4C2 /* FruitListCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E03A184291EA7E10063C4C2 /* FruitListCell.swift */; };
 		8E03A187291EA7E10063C4C2 /* FruitListCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8E03A185291EA7E10063C4C2 /* FruitListCell.xib */; };
 		8E03A189291EC9530063C4C2 /* Fruit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E03A188291EC9530063C4C2 /* Fruit.swift */; };
+		8E03A18B292028B30063C4C2 /* FruitDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E03A18A292028B20063C4C2 /* FruitDetailsViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -57,6 +58,7 @@
 		8E03A184291EA7E10063C4C2 /* FruitListCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FruitListCell.swift; sourceTree = "<group>"; };
 		8E03A185291EA7E10063C4C2 /* FruitListCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FruitListCell.xib; sourceTree = "<group>"; };
 		8E03A188291EC9530063C4C2 /* Fruit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Fruit.swift; sourceTree = "<group>"; };
+		8E03A18A292028B20063C4C2 /* FruitDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FruitDetailsViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -142,6 +144,7 @@
 			isa = PBXGroup;
 			children = (
 				8E03A153291EA1A00063C4C2 /* ListViewController.swift */,
+				8E03A18A292028B20063C4C2 /* FruitDetailsViewController.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -291,6 +294,7 @@
 				8E03A15A291EA1A00063C4C2 /* Eksamen.xcdatamodeld in Sources */,
 				8E03A186291EA7E10063C4C2 /* FruitListCell.swift in Sources */,
 				8E03A154291EA1A00063C4C2 /* ListViewController.swift in Sources */,
+				8E03A18B292028B30063C4C2 /* FruitDetailsViewController.swift in Sources */,
 				8E03A150291EA1A00063C4C2 /* AppDelegate.swift in Sources */,
 				8E03A152291EA1A00063C4C2 /* SceneDelegate.swift in Sources */,
 			);

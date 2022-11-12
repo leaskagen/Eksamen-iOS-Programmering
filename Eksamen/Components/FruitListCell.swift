@@ -15,6 +15,7 @@ class FruitListCell: UITableViewCell {
     
     @IBOutlet weak var FruitListCell: UITableViewCell!
     @IBOutlet weak var FruitCellLabel: UILabel!
+    @IBOutlet weak var FruitCellImage: UIImageView!
 
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -26,7 +27,4 @@ class FruitListCell: UITableViewCell {
 
         // Configure the view for the selected state
     }
-    
-    
-    
 }

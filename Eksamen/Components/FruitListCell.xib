@@ -4,6 +4,7 @@
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21204"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
@@ -16,30 +17,46 @@
                 <rect key="frame" x="0.0" y="0.0" width="320" height="75"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="b5D-R9-oSO">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="75"/>
+                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="2lT-e1-DuW">
+                        <rect key="frame" x="20" y="20" width="35" height="35"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="35" id="Pve-r4-2a3"/>
+                            <constraint firstAttribute="width" constant="35" id="bpT-Db-o3U"/>
+                        </constraints>
+                    </imageView>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="b5D-R9-oSO">
+                        <rect key="frame" x="75" y="0.0" width="245" height="75"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="75" id="5YP-87-guc"/>
                         </constraints>
-                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="20"/>
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
                 </subviews>
                 <constraints>
-                    <constraint firstItem="b5D-R9-oSO" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="JdG-Ib-X1f"/>
-                    <constraint firstAttribute="trailing" secondItem="b5D-R9-oSO" secondAttribute="trailing" id="OWQ-4S-8cj"/>
-                    <constraint firstAttribute="bottom" secondItem="b5D-R9-oSO" secondAttribute="bottom" id="QVO-0a-wjg"/>
-                    <constraint firstItem="b5D-R9-oSO" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="ayK-Pd-qh7"/>
+                    <constraint firstItem="b5D-R9-oSO" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="20j-ZK-vRU"/>
+                    <constraint firstItem="2lT-e1-DuW" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="20" symbolic="YES" id="5JN-xS-CWs"/>
+                    <constraint firstAttribute="bottom" secondItem="2lT-e1-DuW" secondAttribute="bottom" constant="20" symbolic="YES" id="Nuw-OQ-8ZF"/>
+                    <constraint firstAttribute="trailing" secondItem="b5D-R9-oSO" secondAttribute="trailing" id="h21-2O-r7Z"/>
+                    <constraint firstItem="2lT-e1-DuW" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="20" symbolic="YES" id="iLp-sw-qMb"/>
+                    <constraint firstItem="b5D-R9-oSO" firstAttribute="leading" secondItem="2lT-e1-DuW" secondAttribute="trailing" constant="20" id="ve6-Fy-whx"/>
+                    <constraint firstAttribute="bottom" secondItem="b5D-R9-oSO" secondAttribute="bottom" id="z4u-ZM-C9P"/>
                 </constraints>
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
-            <color key="backgroundColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
             <connections>
+                <outlet property="FruitCellImage" destination="2lT-e1-DuW" id="rtS-fS-70W"/>
                 <outlet property="FruitCellLabel" destination="b5D-R9-oSO" id="ZYX-eV-LH6"/>
                 <outlet property="FruitListCell" destination="-1" id="LaP-Mg-EnV"/>
             </connections>
-            <point key="canvasLocation" x="-128" y="21"/>
+            <point key="canvasLocation" x="-129.23076923076923" y="20.971563981042653"/>
         </tableViewCell>
     </objects>
+    <resources>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
 </document>
