@@ -158,12 +158,8 @@ func assignColor(family: String) -> UIColor {
             
             let fruit = fruits[indexPath.row]
             
-            let color = assignColor(family: fruit.family.lowercased())
-            
-            print(color)
-            
             cell.FruitCellLabel.text = fruit.name
-            cell.FruitCellImage.backgroundColor = color
+            cell.FruitCellImage.backgroundColor = assignColor(family: fruit.family.lowercased())
             return cell
         }
     }
@@ -181,6 +177,9 @@ func assignColor(family: String) -> UIColor {
         override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
             if let destination = segue.destination as? FruitDetailsViewController {
                 destination.fruit = fruits[fruitListTableView.indexPathForSelectedRow!.row]
+                /*
+                destination.color = assignColor(family: fruits[fruitListTableView.indexPathForSelectedRow!.row].family)
+                 */
             }
         }
     }
