@@ -177,9 +177,6 @@ func assignColor(family: String) -> UIColor {
         override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
             if let destination = segue.destination as? FruitDetailsViewController {
                 destination.fruit = fruits[fruitListTableView.indexPathForSelectedRow!.row]
-                /*
-                destination.color = assignColor(family: fruits[fruitListTableView.indexPathForSelectedRow!.row].family)
-                 */
             }
         }
     }

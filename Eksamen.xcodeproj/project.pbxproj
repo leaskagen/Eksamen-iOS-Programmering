@@ -21,6 +21,14 @@
 		8E03A187291EA7E10063C4C2 /* FruitListCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8E03A185291EA7E10063C4C2 /* FruitListCell.xib */; };
 		8E03A189291EC9530063C4C2 /* Fruit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E03A188291EC9530063C4C2 /* Fruit.swift */; };
 		8E03A18B292028B30063C4C2 /* FruitDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E03A18A292028B20063C4C2 /* FruitDetailsViewController.swift */; };
+		8E8919B5292CD73400786308 /* GroupsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E8919B4292CD73400786308 /* GroupsViewController.swift */; };
+		8E8919B8292CD7FC00786308 /* GroupsCollectionReusableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E8919B6292CD7FC00786308 /* GroupsCollectionReusableView.swift */; };
+		8E8919B9292CD7FC00786308 /* GroupsCollectionReusableView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8E8919B7292CD7FC00786308 /* GroupsCollectionReusableView.xib */; };
+		8E8919BC292CDA4000786308 /* GroupsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E8919BA292CDA4000786308 /* GroupsCell.swift */; };
+		8E8919BD292CDA4000786308 /* GroupsCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8E8919BB292CDA4000786308 /* GroupsCell.xib */; };
+		8E8919BF292CEDE100786308 /* GroupsCollectionHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E8919BE292CEDE100786308 /* GroupsCollectionHeader.swift */; };
+		8E8919C1292CF0BD00786308 /* Group.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E8919C0292CF0BD00786308 /* Group.swift */; };
+		8E8919C3292E287200786308 /* GroupsListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E8919C2292E287200786308 /* GroupsListViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -59,6 +67,14 @@
 		8E03A185291EA7E10063C4C2 /* FruitListCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FruitListCell.xib; sourceTree = "<group>"; };
 		8E03A188291EC9530063C4C2 /* Fruit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Fruit.swift; sourceTree = "<group>"; };
 		8E03A18A292028B20063C4C2 /* FruitDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FruitDetailsViewController.swift; sourceTree = "<group>"; };
+		8E8919B4292CD73400786308 /* GroupsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupsViewController.swift; sourceTree = "<group>"; };
+		8E8919B6292CD7FC00786308 /* GroupsCollectionReusableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupsCollectionReusableView.swift; sourceTree = "<group>"; };
+		8E8919B7292CD7FC00786308 /* GroupsCollectionReusableView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = GroupsCollectionReusableView.xib; sourceTree = "<group>"; };
+		8E8919BA292CDA4000786308 /* GroupsCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupsCell.swift; sourceTree = "<group>"; };
+		8E8919BB292CDA4000786308 /* GroupsCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = GroupsCell.xib; sourceTree = "<group>"; };
+		8E8919BE292CEDE100786308 /* GroupsCollectionHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupsCollectionHeader.swift; sourceTree = "<group>"; };
+		8E8919C0292CF0BD00786308 /* Group.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Group.swift; sourceTree = "<group>"; };
+		8E8919C2292E287200786308 /* GroupsListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupsListViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -119,6 +135,7 @@
 				8E03A160291EA1A20063C4C2 /* Info.plist */,
 				8E03A158291EA1A00063C4C2 /* Eksamen.xcdatamodeld */,
 				8E03A188291EC9530063C4C2 /* Fruit.swift */,
+				8E8919C0292CF0BD00786308 /* Group.swift */,
 			);
 			path = Eksamen;
 			sourceTree = "<group>";
@@ -145,6 +162,8 @@
 			children = (
 				8E03A153291EA1A00063C4C2 /* ListViewController.swift */,
 				8E03A18A292028B20063C4C2 /* FruitDetailsViewController.swift */,
+				8E8919B4292CD73400786308 /* GroupsViewController.swift */,
+				8E8919C2292E287200786308 /* GroupsListViewController.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -154,6 +173,11 @@
 			children = (
 				8E03A184291EA7E10063C4C2 /* FruitListCell.swift */,
 				8E03A185291EA7E10063C4C2 /* FruitListCell.xib */,
+				8E8919B6292CD7FC00786308 /* GroupsCollectionReusableView.swift */,
+				8E8919B7292CD7FC00786308 /* GroupsCollectionReusableView.xib */,
+				8E8919BA292CDA4000786308 /* GroupsCell.swift */,
+				8E8919BB292CDA4000786308 /* GroupsCell.xib */,
+				8E8919BE292CEDE100786308 /* GroupsCollectionHeader.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -265,6 +289,8 @@
 				8E03A187291EA7E10063C4C2 /* FruitListCell.xib in Resources */,
 				8E03A15F291EA1A20063C4C2 /* LaunchScreen.storyboard in Resources */,
 				8E03A15C291EA1A20063C4C2 /* Assets.xcassets in Resources */,
+				8E8919BD292CDA4000786308 /* GroupsCell.xib in Resources */,
+				8E8919B9292CD7FC00786308 /* GroupsCollectionReusableView.xib in Resources */,
 				8E03A157291EA1A00063C4C2 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -290,11 +316,17 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8E8919C3292E287200786308 /* GroupsListViewController.swift in Sources */,
 				8E03A189291EC9530063C4C2 /* Fruit.swift in Sources */,
+				8E8919BF292CEDE100786308 /* GroupsCollectionHeader.swift in Sources */,
 				8E03A15A291EA1A00063C4C2 /* Eksamen.xcdatamodeld in Sources */,
+				8E8919C1292CF0BD00786308 /* Group.swift in Sources */,
 				8E03A186291EA7E10063C4C2 /* FruitListCell.swift in Sources */,
 				8E03A154291EA1A00063C4C2 /* ListViewController.swift in Sources */,
+				8E8919B5292CD73400786308 /* GroupsViewController.swift in Sources */,
+				8E8919BC292CDA4000786308 /* GroupsCell.swift in Sources */,
 				8E03A18B292028B30063C4C2 /* FruitDetailsViewController.swift in Sources */,
+				8E8919B8292CD7FC00786308 /* GroupsCollectionReusableView.swift in Sources */,
 				8E03A150291EA1A00063C4C2 /* AppDelegate.swift in Sources */,
 				8E03A152291EA1A00063C4C2 /* SceneDelegate.swift in Sources */,
 			);
