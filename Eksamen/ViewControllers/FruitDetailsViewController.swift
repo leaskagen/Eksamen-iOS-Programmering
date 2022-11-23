@@ -7,6 +7,7 @@
 
 import Foundation
 import UIKit
+import CoreData
 
 class FruitDetailsViewController: UIViewController {
     
@@ -86,4 +87,30 @@ class FruitDetailsViewController: UIViewController {
             })
         }
     }
+    
+    @IBAction func eatFruit(){
+        print("I ate a \(fruit!.name)")
+        
+        performSegue(withIdentifier: "showRegisterEatenFruit", sender: self)
+        
+        
+        
+        //var eatenFruit = EatenFruit
+        /*
+        let eatenFruit = NSEntityDescription.insertNewObjectForEntityForName("EatenFruit", inManagedObjectContext: moc) as! EatenFruitMO
+*/
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if let destination = segue.destination as? RegisterEatenFruitViewController {
+            destination.fruitName = fruit?.name
+            destination.fruitCarbohydrates = fruit?.nutritions.carbohydrates
+            destination.fruitProtein = fruit?.nutritions.protein
+            destination.fruitFat = fruit?.nutritions.fat
+            destination.fruitSugar = fruit?.nutritions.sugar
+            destination.fruitCalories = fruit?.nutritions.calories
+        }
+    }
+    
+    
 }
