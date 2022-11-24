@@ -388,16 +388,19 @@
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="LogCell" id="CUH-h2-tgZ" customClass="LogListCell" customModule="Eksamen" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="50" width="390" height="21"/>
+                                        <rect key="frame" x="0.0" y="50" width="390" height="35.333332061767578"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="CUH-h2-tgZ" id="Rnu-iv-0Gn">
-                                            <rect key="frame" x="0.0" y="0.0" width="390" height="21"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="390" height="35.333332061767578"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Gst-cK-Loc">
-                                                    <rect key="frame" x="0.0" y="0.0" width="390" height="21"/>
+                                                    <rect key="frame" x="25" y="0.0" width="365" height="35.333333333333336"/>
                                                     <accessibility key="accessibilityConfiguration" identifier="LogCellLabel"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="35" id="jMv-Ea-T9W"/>
+                                                    </constraints>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="18"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
@@ -406,7 +409,7 @@
                                                 <constraint firstAttribute="bottom" secondItem="Gst-cK-Loc" secondAttribute="bottom" id="W5R-Rn-4ka"/>
                                                 <constraint firstItem="Gst-cK-Loc" firstAttribute="top" secondItem="Rnu-iv-0Gn" secondAttribute="top" id="XdL-da-TC6"/>
                                                 <constraint firstAttribute="trailing" secondItem="Gst-cK-Loc" secondAttribute="trailing" id="fdp-9r-wYd"/>
-                                                <constraint firstItem="Gst-cK-Loc" firstAttribute="leading" secondItem="Rnu-iv-0Gn" secondAttribute="leading" id="kJ2-GJ-4if"/>
+                                                <constraint firstItem="Gst-cK-Loc" firstAttribute="leading" secondItem="Rnu-iv-0Gn" secondAttribute="leading" constant="25" id="kJ2-GJ-4if"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                         <connections>

@@ -1,8 +1,8 @@
 //
-//  EatenFruit+CoreDataProperties.swift
+//  FruitEaten+CoreDataProperties.swift
 //  Eksamen
 //
-//  Created by Lea Skagen on 23/11/2022.
+//  Created by Lea Skagen on 24/11/2022.
 //
 //
 
@@ -10,13 +10,13 @@ import Foundation
 import CoreData
 
 
-extension EatenFruit {
+extension FruitEaten {
 
-    @nonobjc public class func fetchRequest() -> NSFetchRequest<EatenFruit> {
-        return NSFetchRequest<EatenFruit>(entityName: "EatenFruit")
+    @nonobjc public class func fetchRequest() -> NSFetchRequest<FruitEaten> {
+        return NSFetchRequest<FruitEaten>(entityName: "FruitEaten")
     }
 
-    @NSManaged public var date: Date?
+    @NSManaged public var date: String?
     @NSManaged public var fruit: String?
     @NSManaged public var carbohydrates: Double
     @NSManaged public var protein: Double
@@ -26,6 +26,6 @@ extension EatenFruit {
 
 }
 
-extension EatenFruit : Identifiable {
+extension FruitEaten : Identifiable {
 
 }

@@ -30,9 +30,9 @@
 		8E8919C1292CF0BD00786308 /* Group.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E8919C0292CF0BD00786308 /* Group.swift */; };
 		8E8919C3292E287200786308 /* GroupsListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E8919C2292E287200786308 /* GroupsListViewController.swift */; };
 		8E8919CB292EACAF00786308 /* RegisterEatenFruitViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E8919CA292EACAF00786308 /* RegisterEatenFruitViewController.swift */; };
-		8E8919D6292EC8CA00786308 /* EatenFruit+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E8919D4292EC8CA00786308 /* EatenFruit+CoreDataClass.swift */; };
-		8E8919D7292EC8CA00786308 /* EatenFruit+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E8919D5292EC8CA00786308 /* EatenFruit+CoreDataProperties.swift */; };
 		8E8919D9292ED14200786308 /* LogListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E8919D8292ED14200786308 /* LogListViewController.swift */; };
+		8E8919E0292F75CA00786308 /* FruitEaten+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E8919DE292F75CA00786308 /* FruitEaten+CoreDataClass.swift */; };
+		8E8919E1292F75CA00786308 /* FruitEaten+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E8919DF292F75CA00786308 /* FruitEaten+CoreDataProperties.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -80,9 +80,9 @@
 		8E8919C0292CF0BD00786308 /* Group.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Group.swift; sourceTree = "<group>"; };
 		8E8919C2292E287200786308 /* GroupsListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupsListViewController.swift; sourceTree = "<group>"; };
 		8E8919CA292EACAF00786308 /* RegisterEatenFruitViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterEatenFruitViewController.swift; sourceTree = "<group>"; };
-		8E8919D4292EC8CA00786308 /* EatenFruit+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "EatenFruit+CoreDataClass.swift"; sourceTree = "<group>"; };
-		8E8919D5292EC8CA00786308 /* EatenFruit+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "EatenFruit+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		8E8919D8292ED14200786308 /* LogListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogListViewController.swift; sourceTree = "<group>"; };
+		8E8919DE292F75CA00786308 /* FruitEaten+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "FruitEaten+CoreDataClass.swift"; sourceTree = "<group>"; };
+		8E8919DF292F75CA00786308 /* FruitEaten+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "FruitEaten+CoreDataProperties.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -113,8 +113,8 @@
 		8E03A143291EA1A00063C4C2 = {
 			isa = PBXGroup;
 			children = (
-				8E8919D4292EC8CA00786308 /* EatenFruit+CoreDataClass.swift */,
-				8E8919D5292EC8CA00786308 /* EatenFruit+CoreDataProperties.swift */,
+				8E8919DE292F75CA00786308 /* FruitEaten+CoreDataClass.swift */,
+				8E8919DF292F75CA00786308 /* FruitEaten+CoreDataProperties.swift */,
 				8E03A14E291EA1A00063C4C2 /* Eksamen */,
 				8E03A168291EA1A30063C4C2 /* EksamenTests */,
 				8E03A172291EA1A30063C4C2 /* EksamenUITests */,
@@ -328,14 +328,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				8E8919D7292EC8CA00786308 /* EatenFruit+CoreDataProperties.swift in Sources */,
 				8E8919C3292E287200786308 /* GroupsListViewController.swift in Sources */,
 				8E03A189291EC9530063C4C2 /* Fruit.swift in Sources */,
 				8E8919BF292CEDE100786308 /* GroupsCollectionHeader.swift in Sources */,
 				8E03A15A291EA1A00063C4C2 /* Eksamen.xcdatamodeld in Sources */,
+				8E8919E0292F75CA00786308 /* FruitEaten+CoreDataClass.swift in Sources */,
 				8E8919C1292CF0BD00786308 /* Group.swift in Sources */,
-				8E8919D6292EC8CA00786308 /* EatenFruit+CoreDataClass.swift in Sources */,
 				8E03A186291EA7E10063C4C2 /* FruitListCell.swift in Sources */,
+				8E8919E1292F75CA00786308 /* FruitEaten+CoreDataProperties.swift in Sources */,
 				8E03A154291EA1A00063C4C2 /* ListViewController.swift in Sources */,
 				8E8919CB292EACAF00786308 /* RegisterEatenFruitViewController.swift in Sources */,
 				8E8919D9292ED14200786308 /* LogListViewController.swift in Sources */,

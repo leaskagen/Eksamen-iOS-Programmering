@@ -92,13 +92,6 @@ class FruitDetailsViewController: UIViewController {
         print("I ate a \(fruit!.name)")
         
         performSegue(withIdentifier: "showRegisterEatenFruit", sender: self)
-        
-        
-        
-        //var eatenFruit = EatenFruit
-        /*
-        let eatenFruit = NSEntityDescription.insertNewObjectForEntityForName("EatenFruit", inManagedObjectContext: moc) as! EatenFruitMO
-*/
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {

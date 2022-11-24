@@ -13,9 +13,6 @@ class RegisterEatenFruitViewController : UIViewController {
     
     let container = NSPersistentContainer(name: "Eksamen")
     
-    
-    
-    
     @IBOutlet weak var eatenFruitLabel : UILabel!
     @IBOutlet weak var datePicker : UIDatePicker!
     
@@ -59,24 +56,26 @@ class RegisterEatenFruitViewController : UIViewController {
         })
         let moc = container.viewContext
         
-        let entity = NSEntityDescription.entity(forEntityName: "EatenFruit", in: moc)
+        let entity = NSEntityDescription.entity(forEntityName: "FruitEaten", in: moc)
         
         //var eatenFruit = EatenFruit(entity: entity!, insertInto: moc)
         
         //var eatenFruit = EatenFruit.init(entity: entity!, insertInto: moc)
-        var eatenFruit = EatenFruit(entity: entity!, insertInto: moc)
+        let fruitEaten = FruitEaten(entity: entity!, insertInto: moc)
         
         //var eatenFruit =
         
-        eatenFruit.fruit = fruitName
-        eatenFruit.date = datePicker.date
-        eatenFruit.carbohydrates = fruitCarbohydrates!
-        eatenFruit.protein = fruitProtein!
-        eatenFruit.fat = fruitFat!
-        eatenFruit.calories = fruitCalories!
-        eatenFruit.sugar = fruitSugar!
+        fruitEaten.fruit = fruitName
+        fruitEaten.date = datePicker.date.formatted(date: .abbreviated, time: .omitted)
+        fruitEaten.carbohydrates = fruitCarbohydrates!
+        fruitEaten.protein = fruitProtein!
+        fruitEaten.fat = fruitFat!
+        fruitEaten.calories = fruitCalories!
+        fruitEaten.sugar = fruitSugar!
         print(datePicker.date)
         
         try! moc.save()
+        
+        self.dismiss(animated: true, completion: nil)
     }
 }
