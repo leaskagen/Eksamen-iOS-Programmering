@@ -9,6 +9,12 @@ import Foundation
 import UIKit
 import CoreData
 
+class Confetti : UILabel {
+    override func draw(_ rect: CGRect) {
+
+        }
+}
+
 class FruitDetailsViewController: UIViewController {
     
     var fruit: Fruit?
@@ -31,6 +37,10 @@ class FruitDetailsViewController: UIViewController {
     
     @IBOutlet weak var sugarWarning: UIView!
     @IBOutlet weak var sugarWarningLabel: UILabel!
+    
+    let container = NSPersistentContainer(name: "Eksamen")
+    
+    var objects = [Any]()
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -86,6 +96,84 @@ class FruitDetailsViewController: UIViewController {
                 })
             })
         }
+        
+        container.loadPersistentStores(completionHandler: { (storeDescription, error) in
+            if let error = error as NSError? {
+                // Replace this implementation with code to handle the error appropriately.
+                // fatalError() causes the application to generate a crash log and terminate. You should not use this function in a shipping application, although it may be useful during development.
+                 
+                /*
+                 Typical reasons for an error here include:
+                 * The parent directory does not exist, cannot be created, or disallows writing.
+                 * The persistent store is not accessible, due to permissions or data protection when the device is locked.
+                 * The device is out of space.
+                 * The store could not be migrated to the current model version.
+                 Check the error message to determine what the actual problem was.
+                 */
+                fatalError("Unresolved error \(error), \(error.userInfo)")
+            }
+        })
+        
+        let moc = container.viewContext
+        
+        let fetchRequest: NSFetchRequest<FruitEaten>
+        fetchRequest = FruitEaten.fetchRequest()
+        
+        fetchRequest.predicate = NSPredicate(
+            format: "fruit = %@", fruit!.name
+        )
+        
+        objects = try! moc.fetch(fetchRequest)
+        
+        print("objects fetch: \(objects.count)")
+        
+        if (objects.count > 0) {
+            fruitConfetti(amount: objects.count)
+        }
+    }
+    
+    func fruitConfetti(amount: Int){
+        print("Animating \(amount) confetti!")
+        objects.forEach { object in
+            let lbl = UILabel(frame: CGRect(x: randomXLocation(), y: -50, width: 25, height: 25))
+               lbl.font = UIFont.systemFont(ofSize: 20)
+            lbl.text = "\u{1F4AF}"
+               view.addSubview(lbl)
+            animateConfetti(confetti: lbl)
+        }
+    }
+    
+    // Generates a random location on the x-axis
+    func randomXLocation() -> Double{
+        let x = Double.random(in: 0...view.frame.width)
+        return x
+    }
+    
+    func animateConfetti(confetti: UILabel){
+        let confetti = confetti
+        
+        let duration = TimeInterval.random(in: 3...5)
+        let delay = TimeInterval.random(in: 0...1)
+        DispatchQueue.main.asyncAfter(deadline: DispatchTime.now(), execute: { () -> Void in
+            
+            UIView.animateKeyframes(withDuration: duration, delay: delay, animations: {
+                /*
+                // Normal background
+                UIView.addKeyframe(withRelativeStartTime: 0, relativeDuration: 0.33, animations: {
+                    //confetti.backgroundColor = .systemBackground
+                })
+                
+                // Fade to red background
+                UIView.addKeyframe(withRelativeStartTime: 0.33, relativeDuration: 0.33, animations: {
+                    //confetti.backgroundColor = .red
+                })
+                */
+                // Back to normal background
+                UIView.addKeyframe(withRelativeStartTime: 0.01, relativeDuration: 0.99, animations: {
+                    confetti.transform = CGAffineTransformMakeTranslation(0, self.view.frame.height + 50)
+                })
+            })
+        })
     }
     
     @IBAction func eatFruit(){
