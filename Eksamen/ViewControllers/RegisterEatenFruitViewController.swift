@@ -65,7 +65,7 @@ class RegisterEatenFruitViewController : UIViewController {
         
         //var eatenFruit =
         
-        fruitEaten.fruit = fruitName
+        fruitEaten.fruit = fruitName!
         fruitEaten.date = datePicker.date.formatted(date: .abbreviated, time: .omitted)
         fruitEaten.carbohydrates = fruitCarbohydrates!
         fruitEaten.protein = fruitProtein!

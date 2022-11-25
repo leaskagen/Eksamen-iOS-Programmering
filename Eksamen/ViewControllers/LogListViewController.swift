@@ -50,7 +50,9 @@ class LogListViewController : UIViewController {
         
         
         fruitEaten = try! moc.fetch(fetchRequest)
-        
+        /*
+        fruitEaten = fruitEaten.sorted { $0.compare($1) == .orderedAscending }
+        */
         fruitEaten.forEach { EatenFruit in
             if (!dates.contains(EatenFruit.date!)) {
                 dates.append(EatenFruit.date!)

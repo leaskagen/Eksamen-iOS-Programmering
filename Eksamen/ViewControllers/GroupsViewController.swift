@@ -136,10 +136,13 @@ extension GroupsViewController: UICollectionViewDataSource {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "GroupsCell", for: indexPath) as! GroupsCell
         
         if (groups[indexPath.section].type == "family") {
+            cell.backgroundColor = .systemTeal
             cell.groupLabel.text = families[indexPath.item]
         } else if (groups[indexPath.section].type == "genus") {
+            cell.backgroundColor = .systemPink
             cell.groupLabel.text = genuses[indexPath.item]
         } else if (groups[indexPath.section].type == "order") {
+            cell.backgroundColor = .systemYellow
             cell.groupLabel.text = orders[indexPath.item]
         }
         
@@ -158,7 +161,15 @@ extension GroupsViewController: UICollectionViewDataSource {
         else { return header }
         
         let groupType = groups[indexPath.section].type
-          groupCollectionHeader.groupCollectionLabel.text = groupType
+        groupCollectionHeader.groupCollectionLabel.text = groupType.capitalized
         return groupCollectionHeader
+    }
+}
+
+extension GroupsViewController: UICollectionViewDelegateFlowLayout{
+
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+
+        return CGSize(width: collectionView.frame.size.width/2.1, height: 55)
     }
 }

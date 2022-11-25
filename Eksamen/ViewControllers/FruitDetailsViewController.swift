@@ -9,12 +9,6 @@ import Foundation
 import UIKit
 import CoreData
 
-class Confetti : UILabel {
-    override func draw(_ rect: CGRect) {
-
-        }
-}
-
 class FruitDetailsViewController: UIViewController {
     
     var fruit: Fruit?
@@ -74,23 +68,23 @@ class FruitDetailsViewController: UIViewController {
             sugarWarningLabel.isHidden = false
             sugarWarning.backgroundColor = .red
             
-            // Delay animation by one second
-            DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + .seconds(1), execute: { () -> Void in
-                
+            // Start animation immediately
+            DispatchQueue.main.asyncAfter(deadline: DispatchTime.now(), execute: { () -> Void in
+                // Repeating animation
                 UIView.animateKeyframes(withDuration: 5.5, delay: 0, options: [.repeat, .autoreverse], animations: {
                     
                     // Normal background
-                    UIView.addKeyframe(withRelativeStartTime: 0, relativeDuration: 0.33, animations: {
+                    UIView.addKeyframe(withRelativeStartTime: 0, relativeDuration: 0.25, animations: {
                         self.sugarWarning.backgroundColor = .systemBackground
                     })
                 
                     // Fade to red background
-                    UIView.addKeyframe(withRelativeStartTime: 0.33, relativeDuration: 0.33, animations: {
+                    UIView.addKeyframe(withRelativeStartTime: 0.25, relativeDuration: 0.5, animations: {
                         self.sugarWarning.backgroundColor = .red
                     })
                     
                     // Back to normal background
-                    UIView.addKeyframe(withRelativeStartTime: 0.66, relativeDuration: 0.33, animations: {
+                    UIView.addKeyframe(withRelativeStartTime: 0.75, relativeDuration: 0.25, animations: {
                         self.sugarWarning.backgroundColor = .systemBackground
                     })
                 })
@@ -135,50 +129,99 @@ class FruitDetailsViewController: UIViewController {
     func fruitConfetti(amount: Int){
         print("Animating \(amount) confetti!")
         objects.forEach { object in
-            let lbl = UILabel(frame: CGRect(x: randomXLocation(), y: -50, width: 25, height: 25))
+            let lbl = UILabel(frame: CGRect(x: randomXLocation(), y: -25, width: 25, height: 25))
                lbl.font = UIFont.systemFont(ofSize: 20)
-            lbl.text = "\u{1F4AF}"
+            lbl.text = assignEmoji(fruit: (fruit!.name.lowercased()))
                view.addSubview(lbl)
             animateConfetti(confetti: lbl)
         }
     }
     
+    func assignEmoji(fruit: String) -> String {
+        // Default emoji
+        var emoji = "\u{1F4AF}"
+        
+        // list used for unicodes: https://www.unicode.org/emoji/charts/full-emoji-list.html
+        
+        if (fruit == "pineapple"){
+            emoji = "\u{1F34D}"
+        } else if (fruit == "mango"){
+            emoji = "\u{1F96D}"
+        } else if (fruit == "grape" || fruit == "grapes"){
+            emoji = "\u{1F347}"
+        } else if (fruit == "melon") {
+            emoji = "\u{1F348}"
+        } else if (fruit == "watermelon") {
+            emoji = "\u{1F349}"
+        } else if (fruit == "tangerine" || fruit == "orange") {
+            emoji = "\u{1F34A}"
+        } else if (fruit == "banana") {
+            emoji = "\u{1F34C}"
+        } else if (fruit == "lemon") {
+            emoji = "\u{1F34B}"
+        } else if (fruit == "apple") {
+            emoji = "\u{1F34E}"
+        } else if (fruit == "peach") {
+            emoji = "\u{1F351}"
+        } else if (fruit == "pear") {
+            emoji = "\u{1F350}"
+        } else if (fruit == "cherry") {
+            emoji = "\u{1F352}"
+        } else if (fruit == "strawberry") {
+            emoji = "\u{1F353}"
+        } else if (fruit == "blueberry") {
+            emoji = "\u{1FAD0}"
+        } else if (fruit == "kiwi" || fruit == "kiwifruit") {
+            emoji = "\u{1F95D}"
+        } else if (fruit == "tomato") {
+            emoji = "\u{1F345}"
+        } else if (fruit == "greenapple") {
+            emoji = "\u{1F34F}"
+        } else if (fruit == "avocado") {
+            emoji = "\u{1F951}"
+        }
+        
+        return emoji
+    }
+    
     // Generates a random location on the x-axis
     func randomXLocation() -> Double{
-        let x = Double.random(in: 0...view.frame.width)
+        
+        let leftSide: Double = 5
+        let rightSide: Double = view.frame.width
+        
+        let x = Double.random(in: leftSide...rightSide-5)
         return x
     }
     
     func animateConfetti(confetti: UILabel){
-        let confetti = confetti
-        
+
+        // Generate random speed and rotation
         let duration = TimeInterval.random(in: 3...5)
         let delay = TimeInterval.random(in: 0...1)
+        let rotation = CGFloat.random(in: -0.15...0.15)
+        
+        // Start animation immediately
         DispatchQueue.main.asyncAfter(deadline: DispatchTime.now(), execute: { () -> Void in
-            
             UIView.animateKeyframes(withDuration: duration, delay: delay, animations: {
-                /*
-                // Normal background
-                UIView.addKeyframe(withRelativeStartTime: 0, relativeDuration: 0.33, animations: {
-                    //confetti.backgroundColor = .systemBackground
-                })
                 
-                // Fade to red background
-                UIView.addKeyframe(withRelativeStartTime: 0.33, relativeDuration: 0.33, animations: {
-                    //confetti.backgroundColor = .red
+                UIView.addKeyframe(withRelativeStartTime: 0, relativeDuration: 0.1, animations: {
+                    // Scale fruit bigger
+                    confetti.transform = CGAffineTransform(scaleX: 2, y: 2)
                 })
-                */
-                // Back to normal background
                 UIView.addKeyframe(withRelativeStartTime: 0.01, relativeDuration: 0.99, animations: {
-                    confetti.transform = CGAffineTransformMakeTranslation(0, self.view.frame.height + 50)
+                    // Move fruit from top to bottom
+                    let translateAnimation = CGAffineTransformMakeTranslation(0, self.view.frame.height + 50)
+                    // Rotate fruit
+                    let rotateAnimation = CGAffineTransform(rotationAngle: rotation)
+                    
+                    confetti.transform = CGAffineTransformConcat(translateAnimation, rotateAnimation)
                 })
             })
         })
     }
     
     @IBAction func eatFruit(){
-        print("I ate a \(fruit!.name)")
-        
         performSegue(withIdentifier: "showRegisterEatenFruit", sender: self)
     }
     
@@ -192,6 +235,4 @@ class FruitDetailsViewController: UIViewController {
             destination.fruitCalories = fruit?.nutritions.calories
         }
     }
-    
-    
 }

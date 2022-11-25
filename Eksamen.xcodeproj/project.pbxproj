@@ -135,6 +135,7 @@
 		8E03A14E291EA1A00063C4C2 /* Eksamen */ = {
 			isa = PBXGroup;
 			children = (
+				8E8919E22930DC8900786308 /* Functions */,
 				8E03A183291EA7A20063C4C2 /* Components */,
 				8E03A182291EA2530063C4C2 /* ViewControllers */,
 				8E03A14F291EA1A00063C4C2 /* AppDelegate.swift */,
@@ -192,6 +193,13 @@
 				8E8919BE292CEDE100786308 /* GroupsCollectionHeader.swift */,
 			);
 			path = Components;
+			sourceTree = "<group>";
+		};
+		8E8919E22930DC8900786308 /* Functions */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Functions;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
