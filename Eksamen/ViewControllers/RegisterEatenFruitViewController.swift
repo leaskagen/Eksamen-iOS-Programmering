@@ -56,7 +56,7 @@ class RegisterEatenFruitViewController : UIViewController {
         })
         let moc = container.viewContext
         
-        let entity = NSEntityDescription.entity(forEntityName: "FruitEaten", in: moc)
+        let entity = NSEntityDescription.entity(forEntityName: "FruitsEaten", in: moc)
         
         //var eatenFruit = EatenFruit(entity: entity!, insertInto: moc)
         
