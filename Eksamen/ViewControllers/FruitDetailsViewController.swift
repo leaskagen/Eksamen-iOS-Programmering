@@ -110,8 +110,8 @@ class FruitDetailsViewController: UIViewController {
         
         let moc = container.viewContext
         
-        let fetchRequest: NSFetchRequest<FruitEaten>
-        fetchRequest = FruitEaten.fetchRequest()
+        let fetchRequest: NSFetchRequest<FruitsEaten>
+        fetchRequest = FruitsEaten.fetchRequest()
         
         fetchRequest.predicate = NSPredicate(
             format: "fruit = %@", fruit!.name

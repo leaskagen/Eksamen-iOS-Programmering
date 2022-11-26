@@ -17,9 +17,10 @@ class LogListViewController : UIViewController {
     
     let container = NSPersistentContainer(name: "Eksamen")
     
-    var fruitEaten = [FruitEaten]()
+    var fruitEaten = [FruitsEaten]()
     
-    var dates = [String]()
+    var dates = [Date]()
+    var formattedDates = [String]()
     
     //@IBOutlet weak var logCellLabel : UILabel!
     @IBOutlet weak var logTableView : UITableView!
@@ -44,8 +45,8 @@ class LogListViewController : UIViewController {
         })
         let moc = container.viewContext
         
-        let fetchRequest: NSFetchRequest<FruitEaten>
-        fetchRequest = FruitEaten.fetchRequest()
+        let fetchRequest: NSFetchRequest<FruitsEaten>
+        fetchRequest = FruitsEaten.fetchRequest()
         
         
         
@@ -54,12 +55,11 @@ class LogListViewController : UIViewController {
         fruitEaten = fruitEaten.sorted { $0.compare($1) == .orderedAscending }
         */
         fruitEaten.forEach { EatenFruit in
-            print("fruit: \(EatenFruit.fruit!) & \(EatenFruit.date!)")
-            if (!dates.contains(EatenFruit.date!)) {
+            //print("fruit: \(EatenFruit.fruit!) & \(EatenFruit.date!)")
+            //if (!dates.contains(EatenFruit.date!)) {
                 dates.append(EatenFruit.date!)
-            }
+            //}
         }
-        
         print("dates: \(dates)")
         
         logTableView.dataSource = self
@@ -73,11 +73,13 @@ extension LogListViewController : UITableViewDataSource {
     }
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         var fruitCount = 0
+        /*
         fruitEaten.forEach { FruitEaten in
             if (FruitEaten.date! == dates[section].description) {
                 fruitCount += 1
             }
         }
+         */
         return fruitCount
     }
     
@@ -87,14 +89,14 @@ extension LogListViewController : UITableViewDataSource {
              
         let lbl = UILabel(frame: CGRect(x: 15, y: -6, width: view.frame.width - 15, height: 40))
            lbl.font = UIFont.systemFont(ofSize: 20)
-        lbl.text = fruitEaten[section].date
+        //lbl.text = fruitEaten[section].date
            view.addSubview(lbl)
            return view
          }
     
     func tableView(_ tableView: UITableView, viewForFooterInSection section: Int) -> UIView? {
         
-        var fruits = [FruitEaten]()
+        var fruits = [FruitsEaten]()
         
         var carbohydrates: Double = 0
         var protein: Double = 0
@@ -136,14 +138,14 @@ extension LogListViewController : UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = logTableView.dequeueReusableCell(withIdentifier: "LogCell", for: indexPath) as! LogListCell
         
-        var fruits = [FruitEaten]()
-        
+        var fruits = [FruitsEaten]()
+        /*
         fruitEaten.forEach { fruit in
             if (fruit.date == dates[indexPath.section]) {
                 fruits.append(fruit)
             }
         }
-        
+        */
         //let fruit = fruits.(fruits.date == indexPath.section)
         
         print(fruits)

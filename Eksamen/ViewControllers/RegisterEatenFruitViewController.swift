@@ -61,12 +61,13 @@ class RegisterEatenFruitViewController : UIViewController {
         //var eatenFruit = EatenFruit(entity: entity!, insertInto: moc)
         
         //var eatenFruit = EatenFruit.init(entity: entity!, insertInto: moc)
-        let fruitEaten = FruitEaten(entity: entity!, insertInto: moc)
+        let fruitEaten = FruitsEaten(entity: entity!, insertInto: moc)
         
         //var eatenFruit =
         
         fruitEaten.fruit = fruitName!
-        fruitEaten.date = datePicker.date.formatted(date: .abbreviated, time: .omitted)
+        fruitEaten.date = datePicker.date
+        //.formatted(date: .abbreviated, time: .omitted)
         fruitEaten.carbohydrates = fruitCarbohydrates!
         fruitEaten.protein = fruitProtein!
         fruitEaten.fat = fruitFat!
