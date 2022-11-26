@@ -54,12 +54,13 @@ class LogListViewController : UIViewController {
         fruitEaten = fruitEaten.sorted { $0.compare($1) == .orderedAscending }
         */
         fruitEaten.forEach { EatenFruit in
+            print("fruit: \(EatenFruit.fruit!) & \(EatenFruit.date!)")
             if (!dates.contains(EatenFruit.date!)) {
                 dates.append(EatenFruit.date!)
             }
         }
         
-        print(dates)
+        print("dates: \(dates)")
         
         logTableView.dataSource = self
         logTableView.delegate = self
@@ -73,7 +74,7 @@ extension LogListViewController : UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         var fruitCount = 0
         fruitEaten.forEach { FruitEaten in
-            if (FruitEaten.date == dates[section]) {
+            if (FruitEaten.date! == dates[section].description) {
                 fruitCount += 1
             }
         }
@@ -138,7 +139,7 @@ extension LogListViewController : UITableViewDataSource {
         var fruits = [FruitEaten]()
         
         fruitEaten.forEach { fruit in
-            if (fruit.date == fruitEaten[indexPath.section].date) {
+            if (fruit.date == dates[indexPath.section]) {
                 fruits.append(fruit)
             }
         }
@@ -150,8 +151,6 @@ extension LogListViewController : UITableViewDataSource {
         cell.logCellLabel.text = fruits[indexPath.row].fruit
         return cell
     }
-    
-    
 }
 
 extension LogListViewController : UITableViewDelegate {
