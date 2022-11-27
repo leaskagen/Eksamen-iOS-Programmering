@@ -334,10 +334,6 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <datePicker contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="date" translatesAutoresizingMaskIntoConstraints="NO" id="6jN-kh-As8">
-                                <rect key="frame" x="-1" y="377" width="390" height="34"/>
-                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
-                            </datePicker>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="h02-GX-vhj">
                                 <rect key="frame" x="215" y="702" width="125" height="35"/>
                                 <constraints>
@@ -360,6 +356,10 @@
                                     <action selector="cancelledAction" destination="gNw-Yw-Zm0" eventType="touchUpInside" id="Xnm-IV-49j"/>
                                 </connections>
                             </button>
+                            <datePicker contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="date" translatesAutoresizingMaskIntoConstraints="NO" id="6jN-kh-As8">
+                                <rect key="frame" x="131" y="377" width="130" height="34"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
+                            </datePicker>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="7P5-XL-DRC"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -454,10 +454,10 @@
             </objects>
             <point key="canvasLocation" x="-1111" y="1620"/>
         </scene>
-        <!--Item 2-->
+        <!--Groups List View Controller-->
         <scene sceneID="l09-Pc-GzQ">
             <objects>
-                <viewController id="ELG-oP-LCd" customClass="GroupsListViewController" customModule="Eksamen" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController title="Groups List View Controller" id="ELG-oP-LCd" customClass="GroupsListViewController" customModule="Eksamen" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="7fI-i1-qDC">
                         <rect key="frame" x="0.0" y="0.0" width="390" height="787"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -588,7 +588,7 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="81R-R9-ukd"/>
+        <segue reference="KVJ-Gg-jpZ"/>
     </inferredMetricsTieBreakers>
     <color key="tintColor" name="AccentColor"/>
     <resources>
