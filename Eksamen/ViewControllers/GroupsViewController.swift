@@ -60,7 +60,6 @@ class GroupsViewController: UIViewController {
                             self.groups.append(Group(element: Fruit.order, type: "order"))
                         }
                     }
-
                     DispatchQueue.main.async {
                         completed()
                     }
@@ -75,6 +74,7 @@ class GroupsViewController: UIViewController {
 extension GroupsViewController: UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         
+        // Prepare type and element for segue
         let groupType = groups[indexPath.section].type
         var groupElement: String = ""
         if (groupType == "family") {
@@ -135,14 +135,15 @@ extension GroupsViewController: UICollectionViewDataSource {
         
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "GroupsCell", for: indexPath) as! GroupsCell
         
+        // Cell text and background color based on section
         if (groups[indexPath.section].type == "family") {
-            cell.backgroundColor = .systemTeal
+            cell.backgroundColor = UIColor(red: 0.8, green: 0.8, blue: 1, alpha: 1)
             cell.groupLabel.text = families[indexPath.item]
         } else if (groups[indexPath.section].type == "genus") {
-            cell.backgroundColor = .systemPink
+            cell.backgroundColor = UIColor(red: 1, green: 1, blue: 0, alpha: 0.5)
             cell.groupLabel.text = genuses[indexPath.item]
         } else if (groups[indexPath.section].type == "order") {
-            cell.backgroundColor = .systemYellow
+            cell.backgroundColor = UIColor(red: 0, green: 1, blue: 1, alpha: 0.4)
             cell.groupLabel.text = orders[indexPath.item]
         }
         
@@ -160,6 +161,7 @@ extension GroupsViewController: UICollectionViewDataSource {
         guard let groupCollectionHeader = header as? GroupsCollectionHeader
         else { return header }
         
+        // Header title is section type
         let groupType = groups[indexPath.section].type
         groupCollectionHeader.groupCollectionLabel.text = groupType.capitalized
         return groupCollectionHeader
@@ -169,7 +171,7 @@ extension GroupsViewController: UICollectionViewDataSource {
 extension GroupsViewController: UICollectionViewDelegateFlowLayout{
 
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-
+        // Auto size collection view cells
         return CGSize(width: collectionView.frame.size.width/2.1, height: 55)
     }
 }

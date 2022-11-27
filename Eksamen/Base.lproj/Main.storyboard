@@ -209,14 +209,27 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xR2-qP-tSy">
-                                <rect key="frame" x="50" y="687" width="290" height="50"/>
+                                <rect key="frame" x="215" y="687" width="125" height="50"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="50" id="IMO-lK-Vuu"/>
+                                    <constraint firstAttribute="width" constant="125" id="NjS-78-9ER"/>
                                 </constraints>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="filled" title="Eat this fruit"/>
                                 <connections>
                                     <action selector="eatFruit" destination="xqY-um-Ulh" eventType="touchUpInside" id="l9F-GY-Qyc"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uMj-yb-3oL">
+                                <rect key="frame" x="50" y="687" width="125" height="50"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="UD6-5J-QTa"/>
+                                    <constraint firstAttribute="width" constant="125" id="d33-88-U08"/>
+                                </constraints>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="gray" title="Confetti"/>
+                                <connections>
+                                    <action selector="reAnimateConfetti" destination="xqY-um-Ulh" eventType="touchUpInside" id="a6t-mS-DRz"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -231,6 +244,7 @@
                             <constraint firstItem="lvk-Ga-S8N" firstAttribute="trailing" secondItem="hzB-Li-cSR" secondAttribute="trailing" constant="5" id="5Xn-NZ-tqp"/>
                             <constraint firstItem="4ZT-1d-zst" firstAttribute="trailing" secondItem="XZQ-xD-O3X" secondAttribute="trailing" id="8Ep-oe-dGV"/>
                             <constraint firstItem="1GM-uu-2nP" firstAttribute="top" secondItem="WRS-LA-W2E" secondAttribute="bottom" constant="35" id="9Wl-Hf-1LH"/>
+                            <constraint firstItem="uMj-yb-3oL" firstAttribute="leading" secondItem="ezX-lg-3Ux" secondAttribute="leading" constant="50" id="AyH-Eu-tx0"/>
                             <constraint firstItem="XSD-pp-Qk3" firstAttribute="top" secondItem="YoC-DD-Jxk" secondAttribute="bottom" constant="20" id="BSD-2u-dAH"/>
                             <constraint firstItem="ezX-lg-3Ux" firstAttribute="bottom" secondItem="4ZT-1d-zst" secondAttribute="bottom" id="C82-Gf-gEf"/>
                             <constraint firstItem="lvk-Ga-S8N" firstAttribute="trailing" secondItem="ZC2-46-xcz" secondAttribute="trailing" constant="5" id="DYR-XK-5uF"/>
@@ -269,11 +283,11 @@
                             <constraint firstItem="4ZT-1d-zst" firstAttribute="trailing" secondItem="13F-66-bZY" secondAttribute="trailing" constant="20" id="iay-U4-pM1"/>
                             <constraint firstItem="vli-In-Jeo" firstAttribute="leading" secondItem="4ZT-1d-zst" secondAttribute="leading" constant="20" id="j6T-z8-vgj"/>
                             <constraint firstItem="4ZT-1d-zst" firstAttribute="leading" secondItem="ezX-lg-3Ux" secondAttribute="leading" constant="35" id="mRk-DC-6Md"/>
-                            <constraint firstItem="xR2-qP-tSy" firstAttribute="leading" secondItem="ezX-lg-3Ux" secondAttribute="leading" constant="50" id="mpn-03-rFt"/>
                             <constraint firstItem="Ku2-2b-QKg" firstAttribute="leading" secondItem="lvk-Ga-S8N" secondAttribute="leading" constant="5" id="nlX-bg-RWs"/>
                             <constraint firstItem="yFk-Xq-4zt" firstAttribute="leading" secondItem="lvk-Ga-S8N" secondAttribute="leading" constant="5" id="oEC-u6-BeN"/>
                             <constraint firstItem="YoC-DD-Jxk" firstAttribute="top" secondItem="vli-In-Jeo" secondAttribute="bottom" constant="20" id="qEh-Bj-L81"/>
                             <constraint firstItem="XZQ-xD-O3X" firstAttribute="leading" secondItem="4ZT-1d-zst" secondAttribute="leading" id="rV8-fB-35n"/>
+                            <constraint firstItem="ezX-lg-3Ux" firstAttribute="bottom" secondItem="uMj-yb-3oL" secondAttribute="bottom" constant="50" id="s6J-CG-irT"/>
                             <constraint firstItem="lvk-Ga-S8N" firstAttribute="trailing" secondItem="TvS-eQ-JK3" secondAttribute="trailing" constant="5" id="tal-uI-VaB"/>
                             <constraint firstAttribute="bottom" secondItem="D4D-EX-1x5" secondAttribute="bottom" id="uf7-OW-chE"/>
                             <constraint firstItem="hzB-Li-cSR" firstAttribute="top" secondItem="S1n-mb-GG2" secondAttribute="bottom" constant="5" id="ukK-OI-ALu"/>
@@ -545,7 +559,7 @@
                     </view>
                     <tabBarItem key="tabBarItem" title="Groups" image="circle.grid.2x2.fill" catalog="system" id="XWT-Y9-qib"/>
                     <connections>
-                        <outlet property="GroupsCollectionView" destination="zGj-FD-qdO" id="IUp-1u-kO6"/>
+                        <outlet property="groupsCollectionView" destination="zGj-FD-qdO" id="Vi1-yU-Jyg"/>
                         <segue destination="ELG-oP-LCd" kind="show" identifier="showGroupsFruitList" id="zoE-rG-KwF"/>
                     </connections>
                 </viewController>
@@ -574,7 +588,7 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="KVJ-Gg-jpZ"/>
+        <segue reference="81R-R9-ukd"/>
     </inferredMetricsTieBreakers>
     <color key="tintColor" name="AccentColor"/>
     <resources>

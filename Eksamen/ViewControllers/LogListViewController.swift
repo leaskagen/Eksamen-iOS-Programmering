@@ -61,7 +61,9 @@ class LogListViewController : UIViewController {
         logTableView.delegate = self
         
         // Make footers not stick to bottom
-        logTableView.contentInset = UIEdgeInsets(top: 0, left: 0, bottom: -75, right: 0)
+        /*
+        logTableView.contentInset = UIEdgeInsets(top: 0, left: 0, bottom: -30, right: 0)
+         */
     }
 }
 
@@ -79,7 +81,7 @@ extension LogListViewController : UITableViewDataSource {
         // Amount of fruits for each date
         fruitEaten.forEach { FruitEaten in
             let formattedDate = formatter.string(from: FruitEaten.date!)
-            if (formattedDate == formattedDates[section].description) {
+            if (formattedDate == formattedDates[section]) {
                 fruitCount += 1
             }
         }
@@ -174,5 +176,7 @@ extension LogListViewController : UITableViewDataSource {
 }
 
 extension LogListViewController : UITableViewDelegate {
-    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        logTableView.deselectRow(at: indexPath, animated: true)
+    }
 }

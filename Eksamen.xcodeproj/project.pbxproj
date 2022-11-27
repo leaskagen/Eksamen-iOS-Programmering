@@ -33,6 +33,7 @@
 		8E8919D9292ED14200786308 /* LogListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E8919D8292ED14200786308 /* LogListViewController.swift */; };
 		8E8919E52932444900786308 /* FruitsEaten+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E8919E32932444900786308 /* FruitsEaten+CoreDataClass.swift */; };
 		8E8919E62932444900786308 /* FruitsEaten+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E8919E42932444900786308 /* FruitsEaten+CoreDataProperties.swift */; };
+		8E8919E82933B7C900786308 /* FamilyColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E8919E72933B7C800786308 /* FamilyColor.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -83,6 +84,7 @@
 		8E8919D8292ED14200786308 /* LogListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogListViewController.swift; sourceTree = "<group>"; };
 		8E8919E32932444900786308 /* FruitsEaten+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "FruitsEaten+CoreDataClass.swift"; sourceTree = "<group>"; };
 		8E8919E42932444900786308 /* FruitsEaten+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "FruitsEaten+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		8E8919E72933B7C800786308 /* FamilyColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FamilyColor.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -147,6 +149,7 @@
 				8E03A158291EA1A00063C4C2 /* Eksamen.xcdatamodeld */,
 				8E03A188291EC9530063C4C2 /* Fruit.swift */,
 				8E8919C0292CF0BD00786308 /* Group.swift */,
+				8E8919E72933B7C800786308 /* FamilyColor.swift */,
 			);
 			path = Eksamen;
 			sourceTree = "<group>";
@@ -341,6 +344,7 @@
 				8E8919BF292CEDE100786308 /* GroupsCollectionHeader.swift in Sources */,
 				8E03A15A291EA1A00063C4C2 /* Eksamen.xcdatamodeld in Sources */,
 				8E8919E62932444900786308 /* FruitsEaten+CoreDataProperties.swift in Sources */,
+				8E8919E82933B7C900786308 /* FamilyColor.swift in Sources */,
 				8E8919C1292CF0BD00786308 /* Group.swift in Sources */,
 				8E03A186291EA7E10063C4C2 /* FruitListCell.swift in Sources */,
 				8E03A154291EA1A00063C4C2 /* ListViewController.swift in Sources */,
