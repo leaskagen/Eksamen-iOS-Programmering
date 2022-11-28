@@ -7,6 +7,9 @@
 
 import UIKit
 
+// Global array so all classes have access to the different family colors
+var familyColors = [Any]()
+
 class ListViewController: UIViewController {
     
     @IBOutlet weak var fruitListTableView: UITableView!
@@ -15,8 +18,9 @@ class ListViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         downloadFruits {
+            // Assign colors for the different fruit families
+            self.assignFamilyColors()
             // Reload table view after downloading fruits
             self.fruitListTableView.reloadData()
         }
@@ -45,107 +49,36 @@ class ListViewController: UIViewController {
         }
         task.resume()
     }
-}
-
-func assignColor(family: String) -> UIColor {
     
-    enum FruitFamily: String {
-        case musaceae
-        case rutaceae
-        case rosaceae
-        case solanaceae
-        case bromeliaceae
-        case cucurbitaceae
-        case anacardiaceae
-        case myrtaceae
-        case caricaceae
-        case vitaceae
-        case ebenaceae
-        case malvaceae
-        case ericaceae
-        case actinidiaceae
-        case sapindaceae
-        case moraceae
-        case grossulariaceae
-        case passifloraceae
-        case cactaceae
-        case lythraceae
-        case lauraceae
+    // Assign all the different fruit families a color
+    func assignFamilyColors(){
+        fruits.forEach{ fruit in
+            if(!familyColors.contains(where: {($0 as! FamilyColor).family == fruit.family})){
+                familyColors.append(FamilyColor(family: fruit.family, color: createRandomColor()))
+            }
+        }
     }
     
-    let currentFamily = FruitFamily(rawValue: family)
-    
-    var color: UIColor
-    
-    switch currentFamily! {
-        
-    case FruitFamily.musaceae:
-        color = UIColor(red: 1, green: 0.95, blue: 0.4, alpha: 1)
-        
-    case FruitFamily.rutaceae:
-        color = UIColor(red: 1, green: 0.7, blue: 0, alpha: 1)
-        
-    case FruitFamily.rosaceae:
-        color = UIColor(red: 0.5, green: 0.9, blue: 0.1, alpha: 1)
-        
-    case FruitFamily.solanaceae:
-        color = UIColor(red: 0.91, green: 0.1, blue: 0.1, alpha: 1)
-        
-    case FruitFamily.bromeliaceae:
-        color = UIColor(red: 0.95, green: 1, blue: 0, alpha: 1)
-        
-    case FruitFamily.cucurbitaceae:
-        color = UIColor(red: 0, green: 1, blue: 0.6, alpha: 1)
-        
-    case FruitFamily.anacardiaceae:
-        color = UIColor(red: 1, green: 0.445, blue: 0, alpha: 1)
-        
-    case FruitFamily.myrtaceae:
-        color = UIColor(red: 0.7, green: 0, blue: 1, alpha: 0.8)
-        
-    case FruitFamily.caricaceae:
-        color = UIColor(red: 0, green: 0.8, blue: 1, alpha: 1)
-        
-    case FruitFamily.vitaceae:
-        color = UIColor(red: 0.45, green: 0, blue: 1, alpha: 1)
-        
-    case FruitFamily.ebenaceae:
-        color = UIColor(red: 0.2, green: 0.4, blue: 1, alpha: 0.6)
-        
-    case FruitFamily.malvaceae:
-        color = UIColor(red: 0.85, green: 1, blue: 0.42, alpha: 1)
-        
-    case FruitFamily.ericaceae:
-        color = UIColor(red: 1, green: 0, blue: 0.35, alpha: 1)
-        
-    case FruitFamily.actinidiaceae:
-        color = UIColor(red: 0, green: 0.5, blue: 0, alpha: 1)
-        
-    case FruitFamily.sapindaceae:
-        color = UIColor(red: 1, green: 0.85, blue: 0.85, alpha: 0.75)
-        
-    case FruitFamily.moraceae:
-        color = UIColor(red: 0.5, green: 0, blue: 0.5, alpha: 1)
-        
-    case FruitFamily.grossulariaceae:
-        color = UIColor(red: 1, green: 1, blue: 0.85, alpha: 1)
-        
-    case FruitFamily.passifloraceae:
-        color = UIColor(red: 1, green: 0.28, blue: 0, alpha: 1)
-        
-    case FruitFamily.cactaceae:
-        color = UIColor(red: 0, green: 1, blue: 0.35, alpha: 1)
-        
-    case FruitFamily.lythraceae:
-        color = UIColor(red: 0.75, green: 0, blue: 0.2, alpha: 1)
-        
-    case FruitFamily.lauraceae:
-        color = UIColor(red: 0.5, green: 0.5, blue: 0.2, alpha: 1)
+    // Give color based on the fruit family
+    func colorFamilyImage(family: String) -> UIColor {
+        var color = UIColor()
+        familyColors.forEach{ familyColor in
+            if((familyColor as! FamilyColor).family == family) {
+                color = (familyColor as! FamilyColor).color!
+            }
+        }
+        return color
     }
     
-    return color
+    // Generate random color
+    func createRandomColor() -> UIColor {
+        let r = CGFloat.random(in: 0...1)
+        let g = CGFloat.random(in: 0...1)
+        let b = CGFloat.random(in: 0...1)
+        let color = UIColor(red: r, green: g, blue: b, alpha: 1)
+        return color
+    }
 }
-
 
     extension ListViewController: UITableViewDataSource {
         func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -159,7 +92,8 @@ func assignColor(family: String) -> UIColor {
             let fruit = fruits[indexPath.row]
             
             cell.FruitCellLabel.text = fruit.name
-            cell.FruitCellImage.backgroundColor = assignColor(family: fruit.family.lowercased())
+            cell.FruitCellImage.backgroundColor = colorFamilyImage(family: fruit.family)
+
             return cell
         }
     }

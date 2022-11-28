@@ -34,13 +34,13 @@ class FruitDetailsViewController: UIViewController {
     
     let container = NSPersistentContainer(name: "Eksamen")
     
-    var objects = [Any]()
+    var fruitsEaten = [FruitsEaten]()
 
     override func viewDidLoad() {
         super.viewDidLoad()
         
         // Top Color
-        fruitColor.backgroundColor = assignColor(family: (fruit?.family.lowercased())!)
+        fruitColor.backgroundColor = ListViewController().colorFamilyImage(family: fruit!.family)
         
         // Title
         fruitLabel.text = fruit?.name
@@ -91,49 +91,47 @@ class FruitDetailsViewController: UIViewController {
             })
         }
         
+        // Connect to core data
         container.loadPersistentStores(completionHandler: { (storeDescription, error) in
             if let error = error as NSError? {
-                // Replace this implementation with code to handle the error appropriately.
-                // fatalError() causes the application to generate a crash log and terminate. You should not use this function in a shipping application, although it may be useful during development.
-                 
-                /*
-                 Typical reasons for an error here include:
-                 * The parent directory does not exist, cannot be created, or disallows writing.
-                 * The persistent store is not accessible, due to permissions or data protection when the device is locked.
-                 * The device is out of space.
-                 * The store could not be migrated to the current model version.
-                 Check the error message to determine what the actual problem was.
-                 */
                 fatalError("Unresolved error \(error), \(error.userInfo)")
             }
         })
-        
         let moc = container.viewContext
         
-        let fetchRequest: NSFetchRequest<FruitEaten>
-        fetchRequest = FruitEaten.fetchRequest()
-        
+        // Fetch eaten fruits that matches this fruit
+        let fetchRequest: NSFetchRequest<FruitsEaten>
+        fetchRequest = FruitsEaten.fetchRequest()
         fetchRequest.predicate = NSPredicate(
             format: "fruit = %@", fruit!.name
         )
+        fruitsEaten = try! moc.fetch(fetchRequest)
         
-        objects = try! moc.fetch(fetchRequest)
+        // Check if this fruit was eaten more than 30 days ago
+        let last30Days = Calendar.current.date(byAdding: .day, value: -30, to: Date())!
         
-        print("objects fetch: \(objects.count)")
-        
-        if (objects.count > 0) {
-            fruitConfetti(amount: objects.count)
+        // Remove all fruit that is older than 30 days
+        fruitsEaten.removeAll { fruit in
+            return fruit.date! < last30Days
         }
+
+        // Make fruit confetti if fruit of this kind has been eaten
+        if (fruitsEaten.count > 0) {
+            fruitConfetti(amount: fruitsEaten.count)
+        }
+        //print("ostekake: \(AppDelegate().familyColors)")
     }
     
+    // Create confetti
     func fruitConfetti(amount: Int){
-        print("Animating \(amount) confetti!")
-        objects.forEach { object in
-            let lbl = UILabel(frame: CGRect(x: randomXLocation(), y: -25, width: 25, height: 25))
-               lbl.font = UIFont.systemFont(ofSize: 20)
-            lbl.text = assignEmoji(fruit: (fruit!.name.lowercased()))
-               view.addSubview(lbl)
-            animateConfetti(confetti: lbl)
+        fruitsEaten.forEach { object in
+            let emoji = UILabel(frame: CGRect(x: randomXLocation(), y: -25, width: 25, height: 25))
+            emoji.font = UIFont.systemFont(ofSize: 20)
+            // Assign emoji to confetti based on the fruit
+            emoji.text = assignEmoji(fruit: (fruit!.name.lowercased()))
+            view.addSubview(emoji)
+            // Animate confetti
+            animateConfetti(confetti: emoji)
         }
     }
     
@@ -161,7 +159,7 @@ class FruitDetailsViewController: UIViewController {
             emoji = "\u{1F34B}"
         } else if (fruit == "apple") {
             emoji = "\u{1F34E}"
-        } else if (fruit == "peach") {
+        } else if (fruit == "peach" || fruit == "apricot") {
             emoji = "\u{1F351}"
         } else if (fruit == "pear") {
             emoji = "\u{1F350}"
@@ -221,12 +219,19 @@ class FruitDetailsViewController: UIViewController {
         })
     }
     
+    @IBAction func reAnimateConfetti(){
+        if (fruitsEaten.count > 0) {
+            fruitConfetti(amount: fruitsEaten.count)
+        }
+    }
+    
     @IBAction func eatFruit(){
         performSegue(withIdentifier: "showRegisterEatenFruit", sender: self)
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if let destination = segue.destination as? RegisterEatenFruitViewController {
+            // Send fruit information
             destination.fruitName = fruit?.name
             destination.fruitCarbohydrates = fruit?.nutritions.carbohydrates
             destination.fruitProtein = fruit?.nutritions.protein

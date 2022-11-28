@@ -18,21 +18,11 @@ class GroupsListViewController : UIViewController {
     
     var fruits = [Fruit]()
     
-    var url: URL = URL(string: "https://www.fruityvice.com/api/fruit/all")!
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         
         listLabel.text = query
-        
-        if (type == "family"){
-            url = URL(string: "https://www.fruityvice.com/api/fruit/family/\(query!)")!
-        } else if (type == "genus"){
-            url = URL(string: "https://www.fruityvice.com/api/fruit/genus/\(query!)")!
-        } else if (type == "order"){
-            url = URL(string: "https://www.fruityvice.com/api/fruit/order/\(query!)")!
-        }
-        
+
         downloadFruits {
             // Reload table view after downloading fruits
             self.groupFruitList.reloadData()
@@ -44,6 +34,7 @@ class GroupsListViewController : UIViewController {
     }
     
     func downloadFruits(completed: @escaping () -> ()){
+        let url = URL(string: "https://www.fruityvice.com/api/fruit/\(type!)/\(query!)")!
         let task = URLSession.shared.dataTask(with: url) { data, response, error in
             if let data = data {
                 do {
@@ -74,7 +65,7 @@ extension GroupsListViewController: UITableViewDataSource {
         let fruit = fruits[indexPath.row]
         
         cell.FruitCellLabel.text = fruit.name
-        cell.FruitCellImage.backgroundColor = assignColor(family: fruit.family.lowercased())
+        cell.FruitCellImage.backgroundColor = ListViewController().colorFamilyImage(family: fruit.family)
         return cell
     }
 }
