@@ -34,6 +34,7 @@
 		8E8919E52932444900786308 /* FruitsEaten+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E8919E32932444900786308 /* FruitsEaten+CoreDataClass.swift */; };
 		8E8919E62932444900786308 /* FruitsEaten+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E8919E42932444900786308 /* FruitsEaten+CoreDataProperties.swift */; };
 		8E8919E82933B7C900786308 /* FamilyColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E8919E72933B7C800786308 /* FamilyColor.swift */; };
+		8E8919EE2934FB0600786308 /* LogListCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E8919ED2934FB0600786308 /* LogListCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -85,6 +86,7 @@
 		8E8919E32932444900786308 /* FruitsEaten+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "FruitsEaten+CoreDataClass.swift"; sourceTree = "<group>"; };
 		8E8919E42932444900786308 /* FruitsEaten+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "FruitsEaten+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		8E8919E72933B7C800786308 /* FamilyColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FamilyColor.swift; sourceTree = "<group>"; };
+		8E8919ED2934FB0600786308 /* LogListCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogListCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -137,7 +139,6 @@
 		8E03A14E291EA1A00063C4C2 /* Eksamen */ = {
 			isa = PBXGroup;
 			children = (
-				8E8919E22930DC8900786308 /* Functions */,
 				8E03A183291EA7A20063C4C2 /* Components */,
 				8E03A182291EA2530063C4C2 /* ViewControllers */,
 				8E03A14F291EA1A00063C4C2 /* AppDelegate.swift */,
@@ -194,15 +195,9 @@
 				8E8919BA292CDA4000786308 /* GroupsCell.swift */,
 				8E8919BB292CDA4000786308 /* GroupsCell.xib */,
 				8E8919BE292CEDE100786308 /* GroupsCollectionHeader.swift */,
+				8E8919ED2934FB0600786308 /* LogListCell.swift */,
 			);
 			path = Components;
-			sourceTree = "<group>";
-		};
-		8E8919E22930DC8900786308 /* Functions */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Functions;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -355,6 +350,7 @@
 				8E8919BC292CDA4000786308 /* GroupsCell.swift in Sources */,
 				8E03A18B292028B30063C4C2 /* FruitDetailsViewController.swift in Sources */,
 				8E8919B8292CD7FC00786308 /* GroupsCollectionReusableView.swift in Sources */,
+				8E8919EE2934FB0600786308 /* LogListCell.swift in Sources */,
 				8E03A150291EA1A00063C4C2 /* AppDelegate.swift in Sources */,
 				8E03A152291EA1A00063C4C2 /* SceneDelegate.swift in Sources */,
 			);

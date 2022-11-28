@@ -35,7 +35,6 @@ class GroupsViewController: UIViewController {
     
     func downloadFruits(completed: @escaping () -> ()){
         let url = URL(string: "https://www.fruityvice.com/api/fruit/all")!
-        
         let task = URLSession.shared.dataTask(with: url) { data, response, error in
             if let data = data {
                 do {
@@ -169,7 +168,6 @@ extension GroupsViewController: UICollectionViewDataSource {
 }
 
 extension GroupsViewController: UICollectionViewDelegateFlowLayout{
-
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         // Auto size collection view cells
         return CGSize(width: collectionView.frame.size.width/2.1, height: 55)

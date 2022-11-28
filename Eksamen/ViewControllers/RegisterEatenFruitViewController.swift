@@ -31,6 +31,7 @@ class RegisterEatenFruitViewController : UIViewController {
     @IBAction func cancelledAction() {
         self.dismiss(animated: true, completion: nil)
     }
+    
     @IBAction func saveEatenFruit() {
         
         container.loadPersistentStores(completionHandler: { (storeDescription, error) in
@@ -44,6 +45,7 @@ class RegisterEatenFruitViewController : UIViewController {
 
         let fruitEaten = FruitsEaten(entity: entity!, insertInto: moc)
         
+        // Save fruit name, date and nutritions in core data
         fruitEaten.fruit = fruitName!
         fruitEaten.date = datePicker.date
         fruitEaten.carbohydrates = fruitCarbohydrates!
@@ -54,6 +56,7 @@ class RegisterEatenFruitViewController : UIViewController {
         
         try! moc.save()
         
-        self.dismiss(animated: true, completion: nil)
+        // Send user back to root
+        self.view.window!.rootViewController?.dismiss(animated: true, completion: nil)
     }
 }

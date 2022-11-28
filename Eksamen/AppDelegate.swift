@@ -58,12 +58,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         })
         return container
     }()
-    
-    func createMoc() -> NSManagedObjectContext {
-        let context = persistentContainer.viewContext
-        
-        return context
-    }
 
     // MARK: - Core Data Saving support
 

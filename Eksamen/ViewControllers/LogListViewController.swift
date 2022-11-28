@@ -9,10 +9,6 @@ import Foundation
 import UIKit
 import CoreData
 
-class LogListCell : UITableViewCell {
-    @IBOutlet weak var logCellLabel : UILabel!
-}
-
 class LogListViewController : UIViewController {
     
     let container = NSPersistentContainer(name: "Eksamen")
@@ -25,12 +21,26 @@ class LogListViewController : UIViewController {
     @IBOutlet weak var logTableView : UITableView!
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Connect to core data
+        
         container.loadPersistentStores(completionHandler: { (storeDescription, error) in
             if let error = error as NSError? {
                 fatalError("Unresolved error \(error), \(error.userInfo)")
             }
         })
+        
+        // Table view
+        logTableView.dataSource = self
+        logTableView.delegate = self
+        
+    }
+    override func viewDidAppear(_ animated: Bool) {
+        
+        // Reset log for each visit in case new fruits are added
+        fruitEaten = [FruitsEaten]()
+        dates = [Date]()
+        formattedDates = [String]()
+        
+        // Connect to core data
         let moc = container.viewContext
         // Fetch all eaten fruits from core data
         let fetchRequest: NSFetchRequest<FruitsEaten>
@@ -56,19 +66,14 @@ class LogListViewController : UIViewController {
             }
         }
         
-        // Table view
-        logTableView.dataSource = self
-        logTableView.delegate = self
+        logTableView.reloadData()
         
         // Make footers not stick to bottom
-        /*
         logTableView.contentInset = UIEdgeInsets(top: 0, left: 0, bottom: -30, right: 0)
-         */
     }
 }
 
 extension LogListViewController : UITableViewDataSource {
-    
     // One section of fruits for each date
     func numberOfSections(in tableView: UITableView) -> Int {
         return formattedDates.count
@@ -145,7 +150,7 @@ extension LogListViewController : UITableViewDataSource {
         footerView.backgroundColor =  UIColor(red: 0.9, green: 0.9, blue: 0.9, alpha: 0.5)
           
         // Create footer label
-        let footerLabel = UILabel(frame: CGRect(x: 10, y: -25, width: footerView.frame.width, height: 75))
+        let footerLabel = UILabel(frame: CGRect(x: 10, y: -25, width: footerView.frame.width-10, height: 75))
         footerLabel.font = UIFont.systemFont(ofSize: 14)
         footerLabel.numberOfLines = 2
         // Footer text is all the nutritions summed
