@@ -63,7 +63,7 @@ Alt er dynamisk slik at hvis det skulle bli lagt til nye frukter med nye familie
 * Hvis den fant frukt av samme navn så fjerner jeg alle frukter som er eldre enn 30 dager fra i dag
 * Hvis det er spist frukt av denne typen i løpet av de siste 30 dagene lager jeg frukt confetti
 
-*** Fruit Confetti
+### Fruit Confetti
 
 * For hver frukt blir det laget en label med emoji
 * Jeg gjør en sjekk mot alle fruktene som jeg fant en emoji for, de fruktene som ikke har en emoji får en default emoji
