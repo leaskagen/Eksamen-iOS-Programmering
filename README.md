@@ -1,4 +1,9 @@
 # Eksamen-PG5601
+
+* Versjon av Xcode: Version 14.0 beta 6
+* Versjon av iOS: iOS 16
+* Vesjon av Swift: Swift 5
+
 ## Oppgave 1
 
 * Frukt blir hentet fra fruityvice gjennom api/fruit/all endepunktet og blir lagret som et Fruit objekt
