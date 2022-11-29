@@ -1,7 +1,7 @@
 # Eksamen-PG5601
 
-Versjon av Xcode: Version 14.0 beta 6
-Versjon av iOS: iOS 16
+* Versjon av Xcode: Version 14.0 beta 6
+* Versjon av iOS: iOS 16
 
 ## Oppgave 1
 
