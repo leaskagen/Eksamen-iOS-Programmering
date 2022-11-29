@@ -116,13 +116,10 @@ extension GroupsViewController: UICollectionViewDataSource {
     // Number of items in each section
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         if (groups[section].type == "family") {
-            print("families: \(families)")
             return families.count
         } else if (groups[section].type == "genus") {
-            print("genuses: \(genuses)")
             return genuses.count
         } else if (groups[section].type == "order") {
-            print("orders: \(orders)")
             return orders.count
         } else {
             return 0
