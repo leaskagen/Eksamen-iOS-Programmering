@@ -2,6 +2,7 @@
 
 * Versjon av Xcode: Version 14.0 beta 6
 * Versjon av iOS: iOS 16
+* Vesjon av Swift: Swift 5
 
 ## Oppgave 1
 
