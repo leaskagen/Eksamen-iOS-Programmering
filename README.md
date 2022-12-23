@@ -1,4 +1,4 @@
-# Eksamen-PG5601
+# Eksamen iOS Programmering (PG5601)
 
 For denne eksamen lagde jeg en app som lister frukter og deres næringsinnhold og fakta. Frukten kan listes etter id, eller sorteres etter family, genus eller order, og fruktene får tildelt farger etter hvilken family de tilhører. Man kan lage logg med frukt du har spist ved å lagre frukten og datoen i core data, som kan bli hentet i en liste som er sortert etter dato, og næringsinnhold som oppsummerer alt du har fått i deg den dagen. Det er også animasjoner sonm spilles av når man går inn på en frukt, hvis den har mye sukker blinker det rødt mens hvis du har spist den frukten i det siste vil det regne emoji confetti.
 
