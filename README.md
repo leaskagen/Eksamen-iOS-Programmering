@@ -1,8 +1,13 @@
 # Eksamen-PG5601
 
+For denne eksamen lagde jeg en app som lister frukter og deres næringsinnhold og fakta. Frukten kan listes etter id, eller sorteres etter family, genus eller order, og fruktene får tildelt farger etter hvilken family de tilhører. Man kan lage logg med frukt du har spist ved å lagre frukten og datoen i core data, som kan bli hentet i en liste som er sortert etter dato, og næringsinnhold som oppsummerer alt du har fått i deg den dagen. Det er også animasjoner sonm spilles av når man går inn på en frukt, hvis den har mye sukker blinker det rødt mens hvis du har spist den frukten i det siste vil det regne emoji confetti.
+
+* [Fruityvice API dokumentasjon](https://www.fruityvice.com/doc/index.html)
 * Versjon av Xcode: Version 14.0 beta 6
 * Versjon av iOS: iOS 16
 * Vesjon av Swift: Swift 5
+
+### Se nederst for skjermbilder :)
 
 ## Oppgave 1
 
@@ -78,3 +83,18 @@ Alt er dynamisk slik at hvis det skulle bli lagt til nye frukter med nye familie
 * Den andre keyframen bruker jeg translate til å flytte frukten ned og ut av skjermen, og rotate slik at frukten faller så vidt til høyre eller venstre
 * Delay, rotation og varighet på animasjonen er tilfeldig for hver frukt slik at ingen faller likt
 * Animasjonen kan spilles av på nytt så mange ganger som brukeren ønsker med en knapp nederst
+
+## Skjermbilder
+
+<img align="left" src="https://i.postimg.cc/XYFvsrRv/Skjermbilde-2022-12-23-kl-13-39-13-removebg-preview.png"/>
+<img align="center" src="https://i.postimg.cc/bvVNJ1b3/Skjermbilde-2022-12-23-kl-13-40-33-removebg-preview.png"/>
+
+<br/>
+
+<img align="left" src="https://i.postimg.cc/25S4bp9m/Skjermbilde-2022-12-23-kl-13-42-31-removebg-preview.png"/>
+<img align="center" src="https://i.postimg.cc/CLdTNdZf/Skjermbilde-2022-12-23-kl-13-43-30-removebg-preview.png"/>
+
+<br/>
+
+<img align="left" src="https://i.postimg.cc/hGDHXjqj/Skjermbilde-2022-12-23-kl-13-45-08-removebg-preview.png"/>
+<img align="center" src="https://i.postimg.cc/ZnGWqpG1/Skjermbilde-2022-12-23-kl-13-41-25-removebg-preview.png"/>
